@@ -16,12 +16,12 @@ td {
     border-width: 1px;
     border-style: solid;
     border-color: blue;
-    width: 33%;
+    width: 14%;
     border-radius: 50%;
     background-color: white;
 }
 
-.tableMorpion {
+.table-morpion {
     width: 360px;
     height: 640px;
     position: absolute;
@@ -36,10 +36,6 @@ td {
     justify-content: flex-start;
 }
 
-.joueur1 {
-    background-color: yellow;
-}
-
-.joueur2 {
-    background-color: red;
+.cellule {
+    background-color: white;
 }
