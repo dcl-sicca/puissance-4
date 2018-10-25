@@ -1,0 +1,78 @@
+body {
+    background-color: #3498db;
+    font-family: 'Lato', sans-serif;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.wrapper {
+    width: 700px;
+    height: auto;
+    margin: 60px auto 0;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 30px;
+}
+
+header h1 {
+    text-align: center;
+    margin-top: 0;
+    color: #222;
+}
+
+header h3 {
+    color: #888;
+}
+
+.column {
+    float: left;
+    width: 100px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]+label {
+    display: block;
+    height: 80px;
+    width: 80px;
+    background-color: #ecf0f1;
+    border-radius: 100%;
+    margin: 10px;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+input[type="radio"]+label:hover {
+    background-color: #bdc3c7;
+}
+
+input[type="radio"].played+label {
+    cursor: default;
+    z-index: 10 !important;
+}
+
+
+/*Show icon when checked*/
+
+input[type="radio"].player-1:checked+label:after,
+input[type="radio"].player-2:checked+label:after {
+    opacity: 1;
+}
+
+
+/*Player 1 color*/
+
+input[type="radio"].player-1:checked+label {
+    background-color: #e74c3c;
+}
+
+
+/*Player 2 color*/
+
+input[type="radio"].player-2:checked+label {
+    background-color: #f1c40f;
+}
