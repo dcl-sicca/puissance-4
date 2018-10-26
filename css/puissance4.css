@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    outline: none;
 }
 
 table {
@@ -12,16 +13,17 @@ table {
     background-color: blue;
 }
 
-td {
+div .cellule {
     border-width: 1px;
     border-style: solid;
     border-color: blue;
-    width: 14%;
+    width: 13%;
     border-radius: 50%;
     background-color: white;
 }
 
 .table-morpion {
+    background-color: blue;
     width: 360px;
     height: 640px;
     position: absolute;
@@ -33,7 +35,7 @@ td {
     margin-left: -180px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-around;
 }
 
 .cellule {
