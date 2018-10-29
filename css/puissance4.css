@@ -65,6 +65,9 @@ div .cellule {
     width: 13%;
     border-radius: 50%;
     background-color: white;
+    height: 3.13em;
+    line-height: 3.13em;
+    text-align: center;
 }
 
 .cellule {
