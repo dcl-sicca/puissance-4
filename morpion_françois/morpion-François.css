@@ -1,0 +1,6 @@
+#game-area{
+    display: flex;
+    flex-wrap: wrap;
+    height: 130px;
+    width: 150px;
+}

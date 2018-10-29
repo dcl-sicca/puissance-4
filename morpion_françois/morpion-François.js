@@ -17,9 +17,9 @@ gameArea.addEventListener("click", function(event) {
     console.log("X : " + clickedCellCoordX + ", Y : " + clickedCellCoordY);
     console.log("clickedCell : " + clickedCellName);
 
-    cellsStatus[clickedCellCoordX-1][clickedCellCoordY-1] = "clicked"; // modifie le tableau pour stocker la donnée dans la case cliquée
+    cellsStatus[clickedCellCoordX-1][clickedCellCoordY-1] = "o---k"; // modifie le tableau pour stocker la donnée dans la case cliquée
 
     console.log(cellsStatus);
 
-    clickedCellElmt.innerHTML = "Clicked"; // change la case qui viens d'être cliquée (contrairement a ce que j'ai dis peut être fait aussi avec le clic MAIS n'oubliez pas de stocker l'information dans un tableau car il faudra utiliser le tableau pour vérifier les conditions de victoire
+    clickedCellElmt.innerHTML = "o---k"; // change la case qui viens d'être cliquée (contrairement a ce que j'ai dis peut être fait aussi avec le clic MAIS n'oubliez pas de stocker l'information dans un tableau car il faudra utiliser le tableau pour vérifier les conditions de victoire
 });
