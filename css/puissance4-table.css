@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     outline: none;
-    font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
@@ -10,32 +9,23 @@ h1 {
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
-    color: white;
+    color: black;
     background-color: blueviolet;
     width: 100%;
-    height: 2em;
-    align-items: center;
-    line-height: 2em;
+    height: 5%;
 }
 
-header {
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.element:nth-child(2) {
-    /* flex: 1; */
+table {
+    border-width: 1px;
+    border-style: solid;
+    border-color: blue;
+    width: 100%;
+    height: 100%;
     background-color: blue;
-    align-self: flex-end;
 }
 
-.container {
-    background-color: cadetblue;
+.table-morpion {
+    background-color: blue;
     width: 360px;
     height: 640px;
     position: absolute;
@@ -45,17 +35,9 @@ header {
     /* Centrer horizontalement */
     left: 50%;
     margin-left: -180px;
-}
-
-#tableJeux {
-    background-color: blue;
-    width: 100%;
-    height: 360px;
-    /* position: absolute; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    border-radius: 10%;
 }
 
 div .cellule {

@@ -18,12 +18,15 @@ function puissance4() {
     //TODO: Choix de Joueur 2 -> joueur2Choix------------------------------------------------------------------------------
 
     //TODO: récupérer le choix du Joueur 1 -> joueur1Choix-----------------------------------------------------------------
-    //TODO: récupérer le choix du Joueur 2 -> joueur2Choix-----------------------------------------------------------------
     // Récupérer le numéro de colonne cliqué-------------------------------------------------------------------------------
-
     // Modifier le style de la case en fonction du joueur 1 ou 2 -> Array.slice()------------------------------------------
     // vérifier si case ON ou OFF------------------------------------------------------------------------------------------
     // vérifier si 4 case ON en vertical, horizontal-----------------------------------------------------------------------
+
+    //TODO: récupérer le choix du Joueur 2 -> joueur2Choix-----------------------------------------------------------------
+    // Récupérer le numéro de colonne cliqué-------------------------------------------------------------------------------
+
+
 
 
     //TODO: Si : Cas égalité -> Match nul----------------------------------------------------------------------------------
@@ -42,5 +45,12 @@ puissance4();
 
 // Pour test
 var caseMorpion = document.getElementsByTagName("div")
-caseMorpion[42].style.backgroundColor = "red"
+caseMorpion[24].style.backgroundColor = "red"
 console.log(caseMorpion);
+
+var tableJeux = document.getElementById("tableJeux")
+
+tableJeux.addEventListener("click", function(e) {
+    console.log(e);
+    console.log(e.target.id);
+})
