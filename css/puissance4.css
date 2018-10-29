@@ -70,6 +70,21 @@ div .cellule {
     text-align: center;
 }
 
-.cellule {
-    background-color: white;
+
+/* #tableJeux {
+    background-color: blue;
 }
+
+#tableJeux:hover>.y0 {
+    background-color: grey;
+}
+
+.y0 {
+    background-color: blue;
+}
+
+
+/* .y0:hover,
+.y0:hover #tableJeux {
+    background-color: green;
+} */
