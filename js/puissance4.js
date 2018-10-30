@@ -144,7 +144,7 @@ function mouseOutY6() {
     caseMorpion[39].style.backgroundColor = "white"
     caseMorpion[46].style.backgroundColor = "white"
 }
-
+*/
 // Création du plateau de jeux en 2 dimensions 7 colonnes x 6 lignes -> new Array();-----------------------------------
 var celluleStatus = [
     ["0", "0", "0", "0", "0", "0"],
@@ -189,8 +189,8 @@ function reload() {
 
 // Pour test
 
-caseMorpion[24].style.backgroundColor = "red"
-console.log(caseMorpion);
+/*caseMorpion[24].style.backgroundColor = "red"
+console.log(caseMorpion);*/
 
 
 
