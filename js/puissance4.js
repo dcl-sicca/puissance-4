@@ -216,9 +216,8 @@ tableJeux.addEventListener("click", function(event) {
     console.log("X : " + clickedCellCoordX + ", Y : " + clickedCellCoordY);
     console.log("clickedCell : " + clickedCellName);
 
-    celluleStatus[clickedCellCoordX][clickedCellCoordY] = "o---k"; // modifie le tableau pour stocker la donnée dans la case cliquée
+    celluleStatus[clickedCellCoordX][clickedCellCoordY] = "1"; // modifie le tableau pour stocker la donnée dans la case cliquée
 
-    console.log(celluleStatus);
     console.table(celluleStatus);
-    clickedCellElmt.innerHTML = "o---k"; // change la case qui viens d'être cliquée (contrairement a ce que j'ai dis peut être fait aussi avec le clic MAIS n'oubliez pas de stocker l'information dans un tableau car il faudra utiliser le tableau pour vérifier les conditions de victoire
+    clickedCellElmt.style.backgroundColor = "red"; // change la case qui viens d'être cliquée (contrairement a ce que j'ai dis peut être fait aussi avec le clic MAIS n'oubliez pas de stocker l'information dans un tableau car il faudra utiliser le tableau pour vérifier les conditions de victoire
 });
