@@ -145,7 +145,6 @@ function mouseOutY6() {
     caseMorpion[46].style.backgroundColor = "white"
 }
 
-
 // Création du plateau de jeux en 2 dimensions 7 colonnes x 6 lignes -> new Array();-----------------------------------
 var celluleStatus = [
     ["0", "0", "0", "0", "0", "0", "0"],
@@ -199,8 +198,26 @@ tableJeux.addEventListener("click", function(e) {
     console.log(e.target.id);
 })
 
-
-
-
-
 console.table(celluleStatus);
+
+
+
+tableJeux.addEventListener("click", function(event) {
+    var clickedCellElmt;
+    var clickedCellName;
+    var clickedCellCoordX;
+    var clickedCellCoordY;
+
+    clickedCellElmt = document.getElementById(event.target.id); //enregistre l'élément  enfant du DOM qui a été cliquée.
+    clickedCellName = event.target.id; //renvoie l'id de la cellule cliquée sous forme de string
+    clickedCellCoordX = parseInt(clickedCellName[1]); // récupère le 2eme caractère dans l'ID
+    clickedCellCoordY = parseInt(clickedCellName[4]); // récupère le 4eme caractère dans l'ID
+    console.log("X : " + clickedCellCoordX + ", Y : " + clickedCellCoordY);
+    console.log("clickedCell : " + clickedCellName);
+
+    celluleStatus[clickedCellCoordX][clickedCellCoordY] = "o---k"; // modifie le tableau pour stocker la donnée dans la case cliquée
+
+    console.log(celluleStatus);
+
+    clickedCellElmt.innerHTML = "o---k"; // change la case qui viens d'être cliquée (contrairement a ce que j'ai dis peut être fait aussi avec le clic MAIS n'oubliez pas de stocker l'information dans un tableau car il faudra utiliser le tableau pour vérifier les conditions de victoire
+});
