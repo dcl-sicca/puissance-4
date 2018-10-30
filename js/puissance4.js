@@ -26,12 +26,12 @@ var tableJeux = document.getElementById("tableJeux")
 
 // Création du plateau de jeux en 2 dimensions 7 colonnes x 6 lignes -> new Array();-----------------------------------
 var celluleStatus = [
-    ["0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0"]
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0]
 ];
 // Définition de nos 7 colonnes pour choix joueurs---------------------------------------------------------------------
 
@@ -61,11 +61,11 @@ function starJeu() {
 function jeuTableau() {
     for (colonnes = 0; colonnes <= 6; colonnes++) {
         for (lignes = 0; lignes <= 6; lignes++) {
-            if (jeu[lignes][colonnes] == 0) { //verify if the number in the array is 0
+            if (tableJeux[lignes][colonnes] == 0) { //verify if the number in the array is 0
                 document.getElementById("cell" + lignes + colonnes).style.backgroundColor = "white";
-            } else if (jeu[lignes][colonnes] == 1) { //verify if the number in the array is 0
+            } else if (tableJeux[lignes][colonnes] == 1) { //verify if the number in the array is 0
                 document.getElementById("cell" + lignes + colonnes).style.backgroundColor = "red";
-            } else if (jeu[lignes][colonnes] == 2) { //verify if the number in the array is 0
+            } else if (tableJeux[lignes][colonnes] == 2) { //verify if the number in the array is 0
                 document.getElementById("cell" + lignes + colonnes).style.backgroundColor = "yellow";
             }
         }
@@ -99,7 +99,7 @@ tableJeux.addEventListener("click", function(event) {
     if (joueurActuel == 1) {
         // on doit scanner les cases vide et remplir par le bas
         afficheJoueur();
-        celluleStatus[clickedCellCoordX][clickedCellCoordY] = "1"; // modifie le tableau pour stocker la donnée dans la case cliquée
+        celluleStatus[clickedCellCoordX][clickedCellCoordY] = 1; // modifie le tableau pour stocker la donnée dans la case cliquée
         clickedCellElmt.style.backgroundColor = joueur1Choix; // change la case qui viens d'être cliquée en rouge
         joueurActuel++ // Ajoute +1 pour passer au joueur 2
         console.table(celluleStatus);
@@ -108,13 +108,20 @@ tableJeux.addEventListener("click", function(event) {
 
     } else if (joueurActuel == 2) {
         afficheJoueur();
-        celluleStatus[clickedCellCoordX][clickedCellCoordY] = "2"; // modifie le tableau pour stocker la donnée dans la case cliquée
+        celluleStatus[clickedCellCoordX][clickedCellCoordY] = 2; // modifie le tableau pour stocker la donnée dans la case cliquée
         clickedCellElmt.style.backgroundColor = joueur2Choix; // change la case qui viens d'être cliquée en jaune
         joueurActuel-- // Retire 1 pour passer au joueur 1
         console.table(celluleStatus);
     }
 
 });
+
+// tableJeux.addEventListener("click", function(event) {
+
+//     jeuTableau();
+
+
+// });
 
 
 
