@@ -41,7 +41,8 @@ console.table(celluleStatus);
 // Fonction Affiche Joueur Actif
 function afficheJoueur() {
     if (jeuActif == true) {
-        document.getElementById("joueurs").style.backgroundColor = "red";
+        document.getElementById("joueurs").style.backgroundImage = "url(img/fond14.jpg)";
+
     }
     if (joueurActuel == 1) {
         document.getElementById("joueur2").style.backgroundColor = "yellow";
@@ -52,6 +53,10 @@ function afficheJoueur() {
     }
 }
 //TODO: Fonction Jeu---------------------------------------------------------------------------------------------------
+function starJeu() {
+    if (jeuActif == true) return false;
+    jeuActif = true;
+}
 
 function jeuTableau() {
     for (colonnes = 0; colonnes <= 6; colonnes++) {
@@ -66,7 +71,7 @@ function jeuTableau() {
         }
     }
 }
-jeuTableau();
+
 
 // Fonction Jouer jeton qui modifie le style de la case en fonction du joueur 1 ou 2 ------------------------------------------
 
@@ -76,40 +81,40 @@ jeuTableau();
 
 
 
-// tableJeux.addEventListener("click", function(event) {
+tableJeux.addEventListener("click", function(event) {
 
-//     clickedCellElmt = document.getElementById(event.target.id); //enregistre l'élément  enfant du DOM qui a été cliquée.
-//     clickedCellName = event.target.id; //renvoie l'id de la cellule cliquée sous forme de string
-//     clickedCellCoordX = parseInt(clickedCellName[1]); // récupère le 2eme caractère dans l'ID
-//     clickedCellCoordY = parseInt(clickedCellName[4]); // récupère le 4eme caractère dans l'ID
-//     console.log("X : " + clickedCellCoordX + " - Y : " + clickedCellCoordY);
-//     console.log("clickedCell : " + clickedCellName);
+    clickedCellElmt = document.getElementById(event.target.id); //enregistre l'élément  enfant du DOM qui a été cliquée.
+    clickedCellName = event.target.id; //renvoie l'id de la cellule cliquée sous forme de string
+    clickedCellCoordX = parseInt(clickedCellName[1]); // récupère le 2eme caractère dans l'ID
+    clickedCellCoordY = parseInt(clickedCellName[4]); // récupère le 4eme caractère dans l'ID
+    console.log("X : " + clickedCellCoordX + " - Y : " + clickedCellCoordY);
+    console.log("clickedCell : " + clickedCellName);
 
-//     console.log("clickedCellElmt : " + clickedCellElmt);
-//     console.log("clickedCellName : " + clickedCellName);
+    console.log("clickedCellElmt : " + clickedCellElmt);
+    console.log("clickedCellName : " + clickedCellName);
 
-//     console.log("Colonne cliqué : " + clickedCellCoordY);
+    console.log("Colonne cliqué : " + clickedCellCoordY);
 
 
-//     if (joueurActuel == 1) {
-//         // on doit scanner les cases vide et remplir par le bas
-//         afficheJoueur();
-//         celluleStatus[clickedCellCoordX][clickedCellCoordY] = "1"; // modifie le tableau pour stocker la donnée dans la case cliquée
-//         clickedCellElmt.style.backgroundColor = joueur1Choix; // change la case qui viens d'être cliquée en rouge
-//         joueurActuel++ // Ajoute +1 pour passer au joueur 2
-//         console.table(celluleStatus);
-//         console.log(clickedCellElmt);
-//         //console.log(test);
+    if (joueurActuel == 1) {
+        // on doit scanner les cases vide et remplir par le bas
+        afficheJoueur();
+        celluleStatus[clickedCellCoordX][clickedCellCoordY] = "1"; // modifie le tableau pour stocker la donnée dans la case cliquée
+        clickedCellElmt.style.backgroundColor = joueur1Choix; // change la case qui viens d'être cliquée en rouge
+        joueurActuel++ // Ajoute +1 pour passer au joueur 2
+        console.table(celluleStatus);
+        console.log(clickedCellElmt);
+        //console.log(test);
 
-//     } else if (joueurActuel == 2) {
-//         afficheJoueur();
-//         celluleStatus[clickedCellCoordX][clickedCellCoordY] = "2"; // modifie le tableau pour stocker la donnée dans la case cliquée
-//         clickedCellElmt.style.backgroundColor = joueur2Choix; // change la case qui viens d'être cliquée en jaune
-//         joueurActuel-- // Retire 1 pour passer au joueur 1
-//         console.table(celluleStatus);
-//     }
+    } else if (joueurActuel == 2) {
+        afficheJoueur();
+        celluleStatus[clickedCellCoordX][clickedCellCoordY] = "2"; // modifie le tableau pour stocker la donnée dans la case cliquée
+        clickedCellElmt.style.backgroundColor = joueur2Choix; // change la case qui viens d'être cliquée en jaune
+        joueurActuel-- // Retire 1 pour passer au joueur 1
+        console.table(celluleStatus);
+    }
 
-// });
+});
 
 
 
