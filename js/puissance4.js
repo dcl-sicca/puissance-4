@@ -11,20 +11,25 @@ var tableJeu = [
 var joueur1Choix = "red";
 var joueur2Choix = "yellow";
 var joueurActuel = 1; //1 pour joueur 1 et 2 pour joueur 2
-var row = 6;
+var row = 5;
 var jeuActif = false;
 
 var winnerIs;
 
-var clickedCellElmt;
-var clickedCellName;
-var clickedCellCoordX;
-var clickedCellCoordY;
+// var clickedCellElmt;
+// var clickedCellName;
+// var clickedCellCoordX;
+// var clickedCellCoordY;
 
 
 //Déclaration des éléments du DOM -------------------------------------------------------------------------------------
 // var caseMorpion = document.getElementsByTagName("div")
-var tableJeux = document.getElementById("tableJeux")
+var puissance4 = document.getElementById("puissance4")
+var clickedCellElmt = document.getElementById("x" + row + "-y" + col); //enregistre l'élément  enfant du DOM qui a été cliquée.
+//var clickedCellName = event.target.id; //renvoie l'id de la cellule cliquée sous forme de string
+var clickedCellCoordX = parseInt(clickedCellName[1]); // récupère le 2eme caractère dans l'ID
+var clickedCellCoordY = parseInt(clickedCellName[4]); // récupère le 4eme caractère dans l'ID
+console.log(clickedCellCoordX + clickedCellCoordY)
 
 //TODO: Choix de Joueur 1 -> joueur1Choix------------------------------------------------------------------------------
 // Joueur 1= rouge ou autre couleur ou avatar
@@ -60,7 +65,7 @@ function starJeu() {
 function jeuTableau() {
     for (col = 0; col <= 6; col++) {
         for (row = 0; row <= 6; row++) {
-            if (tableJeu[row][col] == 0) { // vérifie si la cellule est égal à 0
+            if (tableJeu[row][col] == "vide") { // vérifie si la cellule est égal à 0
                 document.getElementById("x" + row + "-y" + col).style.backgroundColor = "white";
             }
             if (tableJeu[row][col] == 1) { //vérifie si la cellule est égal à 1 = Joueur 1
@@ -78,7 +83,7 @@ function selectionColonne(col) {
     // victoireJoueur();
     // Cherchez le point le plus bas de cette rangée qui est ouvert.
     for (row = 6; row >= 0; row--) {
-        if (tableJeu[row][col] == 0) {
+        if (tableJeu[row][col] == "vide") {
             tableJeu[row][col] = joueurActuel;
             jeuTableau();
             //changer le tour des joueurs actifs :
@@ -95,7 +100,6 @@ function selectionColonne(col) {
     }
 }
 
-
 // Fonction Jouer jeton qui modifie le style de la case en fonction du joueur 1 ou 2 ------------------------------------------
 
 
@@ -104,7 +108,7 @@ function selectionColonne(col) {
 
 
 
-// tableJeux.addEventListener("click", function(event) {
+// puissance4.addEventListener("click", function(event) {
 
 //     clickedCellElmt = document.getElementById(event.target.id); //enregistre l'élément  enfant du DOM qui a été cliquée.
 //     clickedCellName = event.target.id; //renvoie l'id de la cellule cliquée sous forme de string
@@ -122,24 +126,24 @@ function selectionColonne(col) {
 //     if (joueurActuel == 1) {
 //         // on doit scanner les cases vide et remplir par le bas
 //         afficheJoueur();
-//         tableJeux[clickedCellCoordX][clickedCellCoordY] = 1; // modifie le tableau pour stocker la donnée dans la case cliquée
+//         puissance4[clickedCellCoordX][clickedCellCoordY] = 1; // modifie le tableau pour stocker la donnée dans la case cliquée
 //         clickedCellElmt.style.backgroundColor = joueur1Choix; // change la case qui viens d'être cliquée en rouge
 //         joueurActuel++ // Ajoute +1 pour passer au joueur 2
-//         console.table(tableJeux);
+//         console.table(puissance4);
 //         console.log(clickedCellElmt);
 //         //console.log(test);
 
 //     } else if (joueurActuel == 2) {
 //         afficheJoueur();
-//         tableJeux[clickedCellCoordX][clickedCellCoordY] = 2; // modifie le tableau pour stocker la donnée dans la case cliquée
+//         puissance4[clickedCellCoordX][clickedCellCoordY] = 2; // modifie le tableau pour stocker la donnée dans la case cliquée
 //         clickedCellElmt.style.backgroundColor = joueur2Choix; // change la case qui viens d'être cliquée en jaune
 //         joueurActuel-- // Retire 1 pour passer au joueur 1
-//         console.table(tableJeux);
+//         console.table(puissance4);
 //     }
 
 // });
 
-// tableJeux.addEventListener("click", function(event) {
+// puissance4.addEventListener("click", function(event) {
 //     jeuTableau();
 // });
 
