@@ -1,35 +1,38 @@
 // Création du plateau de jeux en 2 dimensions 7 col x 6 row -> new Array();-----------------------------------
 var tableJeu = [
-    ["vide", "vide", "vide", "vide", "vide", "vide", "vide"],
-    ["vide", "vide", "vide", "vide", "vide", "vide", "vide"],
-    ["vide", "vide", "vide", "vide", "vide", "vide", "vide"],
-    ["vide", "vide", "vide", "vide", "vide", "vide", "vide"],
-    ["vide", "vide", "vide", "vide", "vide", "vide", "vide"],
-    ["vide", "vide", "vide", "vide", "vide", "vide", "vide"]
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0]
 ];
 //Déclaration des variables
 var joueur1Choix = "red";
 var joueur2Choix = "yellow";
 var joueurActuel = 1; //1 pour joueur 1 et 2 pour joueur 2
-var row = 5;
+var row = 6;
+var col = 7;
 var jeuActif = false;
 
 var winnerIs;
 
-// var clickedCellElmt;
-// var clickedCellName;
-// var clickedCellCoordX;
-// var clickedCellCoordY;
+var clickedCellElmt;
+var clickedCellName;
+var clickedCellCoordX;
+var clickedCellCoordY;
 
+//Affiche tableau vierge
+console.table(tableJeu);
 
 //Déclaration des éléments du DOM -------------------------------------------------------------------------------------
 // var caseMorpion = document.getElementsByTagName("div")
 var puissance4 = document.getElementById("puissance4")
-var clickedCellElmt = document.getElementById("x" + row + "-y" + col); //enregistre l'élément  enfant du DOM qui a été cliquée.
-//var clickedCellName = event.target.id; //renvoie l'id de la cellule cliquée sous forme de string
-var clickedCellCoordX = parseInt(clickedCellName[1]); // récupère le 2eme caractère dans l'ID
-var clickedCellCoordY = parseInt(clickedCellName[4]); // récupère le 4eme caractère dans l'ID
-console.log(clickedCellCoordX + clickedCellCoordY)
+    // clickedCellElmt = document.getElementById("x" + row + "-y" + col); //enregistre l'élément  enfant du DOM qui a été cliquée.
+    // clickedCellName = event.target.id; //renvoie l'id de la cellule cliquée sous forme de string
+    // clickedCellCoordX = parseInt(clickedCellName[1]); // récupère le 2eme caractère dans l'ID
+    // clickedCellCoordY = parseInt(clickedCellName[4]); // récupère le 4eme caractère dans l'ID
+    // console.log(clickedCellCoordX + clickedCellCoordY)
 
 //TODO: Choix de Joueur 1 -> joueur1Choix------------------------------------------------------------------------------
 // Joueur 1= rouge ou autre couleur ou avatar
@@ -40,8 +43,7 @@ console.log(clickedCellCoordX + clickedCellCoordY)
 
 // Définition de nos 7 col pour choix joueurs---------------------------------------------------------------------
 
-//Affiche tableau vierge
-console.table(tableJeu);
+
 
 // Fonction Affiche Joueur Actif
 function afficheJoueur() {
@@ -62,51 +64,43 @@ function starJeu() {
     jeuActif = true;
 }
 
-function jeuTableau() {
-    for (col = 0; col <= 6; col++) {
-        for (row = 0; row <= 6; row++) {
-            if (tableJeu[row][col] == "vide") { // vérifie si la cellule est égal à 0
-                document.getElementById("x" + row + "-y" + col).style.backgroundColor = "white";
-            }
-            if (tableJeu[row][col] == 1) { //vérifie si la cellule est égal à 1 = Joueur 1
-                document.getElementById("x" + row + "-y" + col).style.backgroundColor = "red";
-            } else if (tableJeu[row][col] == 2) { //vérifie si la cellule est égal à 2 = Joueur 2
-                document.getElementById("x" + row + "-y" + col).style.backgroundColor = "yellow";
-            }
-        }
-    }
-}
+// function jeuTableau() {
+//     for (col = 0; col <= 6; col++) {
+//         for (row = 0; row <= 6; row++) {
+//             if (tableJeu[row][col] == 0) { // vérifie si la cellule est égal à 0
+//                 document.getElementById("x" + row + "-y" + col).style.backgroundColor = "white";
+//             }
+//             if (tableJeu[row][col] == 1) { //vérifie si la cellule est égal à 1 = Joueur 1
+//                 document.getElementById("x" + row + "-y" + col).style.backgroundColor = "red";
+//             } else if (tableJeu[row][col] == 2) { //vérifie si la cellule est égal à 2 = Joueur 2
+//                 document.getElementById("x" + row + "-y" + col).style.backgroundColor = "yellow";
+//             }
+//         }
+//     }
+// }
 
 
-// ajouter une pièce dans la colonne la plus basse disponible 
-function selectionColonne(col) {
-    // victoireJoueur();
-    // Cherchez le point le plus bas de cette rangée qui est ouvert.
-    for (row = 6; row >= 0; row--) {
-        if (tableJeu[row][col] == "vide") {
-            tableJeu[row][col] = joueurActuel;
-            jeuTableau();
-            //changer le tour des joueurs actifs :
-            if (joueurActuel == 1) {
-                joueurActuel = 2;
-            } else {
-                joueurActuel = 1;
-            }
-            afficheJoueur();
+// // ajouter une pièce dans la colonne la plus basse disponible 
+// function selectionColonne(col) {
+//     // victoireJoueur();
+//     // Cherchez le point le plus bas de cette rangée qui est ouvert.
+//     for (row = 6; row >= 0; row--) {
+//         if (tableJeu[row][col] == 0) {
+//             tableJeu[row][col] = joueurActuel;
+//             jeuTableau();
+//             //changer le tour des joueurs actifs :
+//             if (joueurActuel == 1) {
+//                 joueurActuel = 2;
+//             } else {
+//                 joueurActuel = 1;
+//             }
+//             afficheJoueur();
 
-            //arrêter de chercher des espaces vides
-            return true;
-        }
-    }
-}
-
-// Fonction Jouer jeton qui modifie le style de la case en fonction du joueur 1 ou 2 ------------------------------------------
-
-
-
-
-
-
+//             //arrêter de chercher des espaces vides
+//             return true;
+//         }
+//     }
+// }
 
 // puissance4.addEventListener("click", function(event) {
 
@@ -142,6 +136,26 @@ function selectionColonne(col) {
 //     }
 
 // });
+
+puissance4.addEventListener("click", function(event) {
+    var clickedCellElmt;
+    var clickedCellName;
+    var clickedCellCoordX;
+    var clickedCellCoordY;
+
+    clickedCellElmt = document.getElementById(event.target.id); //enregistre l'élément  enfant du DOM qui a été cliquée.
+    clickedCellName = event.target.id; //renvoie l'id de la cellule cliquée sous forme de string
+    clickedCellCoordX = parseInt(clickedCellName[1]); // récupère le 2eme caractère dans l'ID
+    clickedCellCoordY = parseInt(clickedCellName[4]); // récupère le 4eme caractère dans l'ID
+    console.log("X : " + clickedCellCoordX + ", Y : " + clickedCellCoordY);
+    console.log("clickedCell : " + clickedCellName);
+
+    tableJeu[clickedCellCoordX][clickedCellCoordY] = "o---k"; // modifie le tableau pour stocker la donnée dans la case cliquée
+
+    console.log(tableJeu);
+
+    clickedCellElmt.innerHTML = "o---k"; // change la case qui viens d'être cliquée (contrairement a ce que j'ai dis peut être fait aussi avec le clic MAIS n'oubliez pas de stocker l'information dans un tableau car il faudra utiliser le tableau pour vérifier les conditions de victoire
+});
 
 // puissance4.addEventListener("click", function(event) {
 //     jeuTableau();
