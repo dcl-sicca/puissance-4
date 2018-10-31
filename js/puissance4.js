@@ -102,60 +102,42 @@ function starJeu() {
 //     }
 // }
 
-// puissance4.addEventListener("click", function(event) {
-
-//     clickedCellElmt = document.getElementById(event.target.id); //enregistre l'élément  enfant du DOM qui a été cliquée.
-//     clickedCellName = event.target.id; //renvoie l'id de la cellule cliquée sous forme de string
-//     clickedCellCoordX = parseInt(clickedCellName[1]); // récupère le 2eme caractère dans l'ID
-//     clickedCellCoordY = parseInt(clickedCellName[4]); // récupère le 4eme caractère dans l'ID
-//     console.log("X : " + clickedCellCoordX + " - Y : " + clickedCellCoordY);
-//     console.log("clickedCell : " + clickedCellName);
-
-//     console.log("clickedCellElmt : " + clickedCellElmt);
-//     console.log("clickedCellName : " + clickedCellName);
-
-//     console.log("Colonne cliqué : " + clickedCellCoordY);
-
-
-//     if (joueurActuel == 1) {
-//         // on doit scanner les cases vide et remplir par le bas
-//         afficheJoueur();
-//         puissance4[clickedCellCoordX][clickedCellCoordY] = 1; // modifie le tableau pour stocker la donnée dans la case cliquée
-//         clickedCellElmt.style.backgroundColor = joueur1Choix; // change la case qui viens d'être cliquée en rouge
-//         joueurActuel++ // Ajoute +1 pour passer au joueur 2
-//         console.table(puissance4);
-//         console.log(clickedCellElmt);
-//         //console.log(test);
-
-//     } else if (joueurActuel == 2) {
-//         afficheJoueur();
-//         puissance4[clickedCellCoordX][clickedCellCoordY] = 2; // modifie le tableau pour stocker la donnée dans la case cliquée
-//         clickedCellElmt.style.backgroundColor = joueur2Choix; // change la case qui viens d'être cliquée en jaune
-//         joueurActuel-- // Retire 1 pour passer au joueur 1
-//         console.table(puissance4);
-//     }
-
-// });
-
 puissance4.addEventListener("click", function(event) {
-    var clickedCellElmt;
-    var clickedCellName;
-    var clickedCellCoordX;
-    var clickedCellCoordY;
 
     clickedCellElmt = document.getElementById(event.target.id); //enregistre l'élément  enfant du DOM qui a été cliquée.
     clickedCellName = event.target.id; //renvoie l'id de la cellule cliquée sous forme de string
     clickedCellCoordX = parseInt(clickedCellName[1]); // récupère le 2eme caractère dans l'ID
     clickedCellCoordY = parseInt(clickedCellName[4]); // récupère le 4eme caractère dans l'ID
-    console.log("X : " + clickedCellCoordX + ", Y : " + clickedCellCoordY);
+    console.log("X : " + clickedCellCoordX + " - Y : " + clickedCellCoordY);
     console.log("clickedCell : " + clickedCellName);
 
-    tableJeu[clickedCellCoordX][clickedCellCoordY] = "o---k"; // modifie le tableau pour stocker la donnée dans la case cliquée
+    console.log("clickedCellElmt : " + clickedCellElmt);
+    console.log("clickedCellName : " + clickedCellName);
 
-    console.log(tableJeu);
+    console.log("Colonne cliqué : " + clickedCellCoordY);
 
-    clickedCellElmt.innerHTML = "o---k"; // change la case qui viens d'être cliquée (contrairement a ce que j'ai dis peut être fait aussi avec le clic MAIS n'oubliez pas de stocker l'information dans un tableau car il faudra utiliser le tableau pour vérifier les conditions de victoire
+
+    if (joueurActuel == 1) {
+        // on doit scanner les cases vide et remplir par le bas
+        afficheJoueur();
+        tableJeu[clickedCellCoordX][clickedCellCoordY] = 1; // modifie le tableau pour stocker la donnée dans la case cliquée
+        clickedCellElmt.style.backgroundColor = joueur1Choix; // change la case qui viens d'être cliquée en rouge
+        joueurActuel++ // Ajoute +1 pour passer au joueur 2
+        console.table(tableJeu);
+        console.log(clickedCellElmt);
+        //console.log(test);
+
+    } else if (joueurActuel == 2) {
+        afficheJoueur();
+        tableJeu[clickedCellCoordX][clickedCellCoordY] = 2; // modifie le tableau pour stocker la donnée dans la case cliquée
+        clickedCellElmt.style.backgroundColor = joueur2Choix; // change la case qui viens d'être cliquée en jaune
+        joueurActuel-- // Retire 1 pour passer au joueur 1
+        console.table(tableJeu);
+    }
+
 });
+
+
 
 // puissance4.addEventListener("click", function(event) {
 //     jeuTableau();
@@ -164,19 +146,7 @@ puissance4.addEventListener("click", function(event) {
 
 
 
-// vérifier si case ON ou OFF------------------------------------------------------------------------------------------
-// vérifier si 4 case ON en vertical, horizontal-----------------------------------------------------------------------
 
-//TODO: récupérer le choix du Joueur 2 -> joueur2Choix-----------------------------------------------------------------
-// Récupérer le numéro de colonne cliqué-------------------------------------------------------------------------------
-
-
-
-
-//TODO: Si : Cas égalité -> Match nul----------------------------------------------------------------------------------
-//TODO: Sinon Si : Cas de victoire ------------------------------------------------------------------------------------
-//TODO: Sinon : Cas de défaite-----------------------------------------------------------------------------------------
-//TODO: Afficher les résultats-----------------------------------------------------------------------------------------
 
 //TODO: Fonction restart-----------------------------------------------------------------------------------------------
 function reload() {
