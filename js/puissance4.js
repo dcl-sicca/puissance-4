@@ -1,10 +1,17 @@
+// Création du plateau de jeux en 2 dimensions 7 col x 6 row -> new Array();-----------------------------------
+var tableJeu = [
+    ["vide", "vide", "vide", "vide", "vide", "vide", "vide"],
+    ["vide", "vide", "vide", "vide", "vide", "vide", "vide"],
+    ["vide", "vide", "vide", "vide", "vide", "vide", "vide"],
+    ["vide", "vide", "vide", "vide", "vide", "vide", "vide"],
+    ["vide", "vide", "vide", "vide", "vide", "vide", "vide"],
+    ["vide", "vide", "vide", "vide", "vide", "vide", "vide"]
+];
 //Déclaration des variables
-
 var joueur1Choix = "red";
 var joueur2Choix = "yellow";
 var joueurActuel = 1; //1 pour joueur 1 et 2 pour joueur 2
 var row = 6;
-var col = 7;
 var jeuActif = false;
 
 var winnerIs;
@@ -16,7 +23,7 @@ var clickedCellCoordY;
 
 
 //Déclaration des éléments du DOM -------------------------------------------------------------------------------------
-var caseMorpion = document.getElementsByTagName("div")
+// var caseMorpion = document.getElementsByTagName("div")
 var tableJeux = document.getElementById("tableJeux")
 
 //TODO: Choix de Joueur 1 -> joueur1Choix------------------------------------------------------------------------------
@@ -24,19 +31,12 @@ var tableJeux = document.getElementById("tableJeux")
 //TODO: Choix de Joueur 2 -> joueur2Choix------------------------------------------------------------------------------
 // Joueur 2= jaune ou autre couleur ou avatar
 
-// Création du plateau de jeux en 2 dimensions 7 col x 6 row -> new Array();-----------------------------------
-var celluleStatus = [
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0]
-];
+
+
 // Définition de nos 7 col pour choix joueurs---------------------------------------------------------------------
 
 //Affiche tableau vierge
-console.table(celluleStatus);
+console.table(tableJeu);
 
 // Fonction Affiche Joueur Actif
 function afficheJoueur() {
@@ -60,12 +60,12 @@ function starJeu() {
 function jeuTableau() {
     for (col = 0; col <= 6; col++) {
         for (row = 0; row <= 6; row++) {
-            if (celluleStatus[row][col] == 0) { // vérifie si la cellule est égal à 0
+            if (tableJeu[row][col] == 0) { // vérifie si la cellule est égal à 0
                 document.getElementById("x" + row + "-y" + col).style.backgroundColor = "white";
             }
-            if (celluleStatus[row][col] == 1) { //vérifie si la cellule est égal à 1 = Joueur 1
+            if (tableJeu[row][col] == 1) { //vérifie si la cellule est égal à 1 = Joueur 1
                 document.getElementById("x" + row + "-y" + col).style.backgroundColor = "red";
-            } else if (celluleStatus[row][col] == 2) { //vérifie si la cellule est égal à 2 = Joueur 2
+            } else if (tableJeu[row][col] == 2) { //vérifie si la cellule est égal à 2 = Joueur 2
                 document.getElementById("x" + row + "-y" + col).style.backgroundColor = "yellow";
             }
         }
@@ -73,15 +73,15 @@ function jeuTableau() {
 }
 
 
-// Ajoute une pièce quand on clic sur une colonne
+// ajouter une pièce dans la colonne la plus basse disponible 
 function selectionColonne(col) {
-    // lookForWin();
-    // Look for the lowest point in this row that is open
+    // victoireJoueur();
+    // Cherchez le point le plus bas de cette rangée qui est ouvert.
     for (row = 6; row >= 0; row--) {
-        if (celluleStatus[row][col] == 0) {
-            celluleStatus[row][col] = joueurActuel;
+        if (tableJeu[row][col] == 0) {
+            tableJeu[row][col] = joueurActuel;
             jeuTableau();
-            //change the active players turn:
+            //changer le tour des joueurs actifs :
             if (joueurActuel == 1) {
                 joueurActuel = 2;
             } else {
@@ -89,7 +89,7 @@ function selectionColonne(col) {
             }
             afficheJoueur();
 
-            //stop looking for empty spaces
+            //arrêter de chercher des espaces vides
             return true;
         }
     }
@@ -122,19 +122,19 @@ function selectionColonne(col) {
 //     if (joueurActuel == 1) {
 //         // on doit scanner les cases vide et remplir par le bas
 //         afficheJoueur();
-//         celluleStatus[clickedCellCoordX][clickedCellCoordY] = 1; // modifie le tableau pour stocker la donnée dans la case cliquée
+//         tableJeux[clickedCellCoordX][clickedCellCoordY] = 1; // modifie le tableau pour stocker la donnée dans la case cliquée
 //         clickedCellElmt.style.backgroundColor = joueur1Choix; // change la case qui viens d'être cliquée en rouge
 //         joueurActuel++ // Ajoute +1 pour passer au joueur 2
-//         console.table(celluleStatus);
+//         console.table(tableJeux);
 //         console.log(clickedCellElmt);
 //         //console.log(test);
 
 //     } else if (joueurActuel == 2) {
 //         afficheJoueur();
-//         celluleStatus[clickedCellCoordX][clickedCellCoordY] = 2; // modifie le tableau pour stocker la donnée dans la case cliquée
+//         tableJeux[clickedCellCoordX][clickedCellCoordY] = 2; // modifie le tableau pour stocker la donnée dans la case cliquée
 //         clickedCellElmt.style.backgroundColor = joueur2Choix; // change la case qui viens d'être cliquée en jaune
 //         joueurActuel-- // Retire 1 pour passer au joueur 1
-//         console.table(celluleStatus);
+//         console.table(tableJeux);
 //     }
 
 // });
