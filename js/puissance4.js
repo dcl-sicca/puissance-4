@@ -4,6 +4,7 @@ var joueur1Choix = "red";
 var joueur2Choix = "yellow";
 var joueurActuel = 1; //1 pour joueur 1 et 2 pour joueur 2
 var row = 6;
+var col = 7;
 var jeuActif = false;
 
 var winnerIs;
@@ -41,7 +42,6 @@ console.table(celluleStatus);
 function afficheJoueur() {
     if (jeuActif == true) {
         document.getElementById("joueurs").style.backgroundImage = "url(img/fond14.jpg)";
-
     }
     if (joueurActuel == 1) {
         document.getElementById("joueur2").style.backgroundColor = "yellow";
@@ -60,13 +60,37 @@ function starJeu() {
 function jeuTableau() {
     for (col = 0; col <= 6; col++) {
         for (row = 0; row <= 6; row++) {
-            if (tableJeux[row][col] == 0) { //verify if the number in the array is 0
-                document.getElementById("cellule" + row + col).style.backgroundColor = "white";
-            } else if (tableJeux[row][col] == 1) { //verify if the number in the array is 0
-                document.getElementById("cellule" + row + col).style.backgroundColor = "red";
-            } else if (tableJeux[row][col] == 2) { //verify if the number in the array is 0
-                document.getElementById("cellule" + row + col).style.backgroundColor = "yellow";
+            if (celluleStatus[row][col] == 0) { // vérifie si la cellule est égal à 0
+                document.getElementById("x" + row + "-y" + col).style.backgroundColor = "white";
             }
+            if (celluleStatus[row][col] == 1) { //vérifie si la cellule est égal à 1 = Joueur 1
+                document.getElementById("x" + row + "-y" + col).style.backgroundColor = "red";
+            } else if (celluleStatus[row][col] == 2) { //vérifie si la cellule est égal à 2 = Joueur 2
+                document.getElementById("x" + row + "-y" + col).style.backgroundColor = "yellow";
+            }
+        }
+    }
+}
+
+
+// Ajoute une pièce quand on clic sur une colonne
+function selectionColonne(col) {
+    // lookForWin();
+    // Look for the lowest point in this row that is open
+    for (row = 6; row >= 0; row--) {
+        if (celluleStatus[row][col] == 0) {
+            celluleStatus[row][col] = joueurActuel;
+            jeuTableau();
+            //change the active players turn:
+            if (joueurActuel == 1) {
+                joueurActuel = 2;
+            } else {
+                joueurActuel = 1;
+            }
+            afficheJoueur();
+
+            //stop looking for empty spaces
+            return true;
         }
     }
 }
@@ -115,9 +139,9 @@ function jeuTableau() {
 
 // });
 
-tableJeux.addEventListener("click", function(event) {
-    jeuTableau();
-});
+// tableJeux.addEventListener("click", function(event) {
+//     jeuTableau();
+// });
 
 
 
